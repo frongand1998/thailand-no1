@@ -14,7 +14,7 @@ const ibmPlexSansThai = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'ทำเนียบข้อมูลสาธารณะ',
+  title: 'Thailand Public Records Explorer | Search People and Agencies',
   description: 'ค้นหาและสำรวจรายชื่อจากเอกสารเผยแพร่สาธารณะ แยกตามจังหวัด อำเภอ และหน่วยงาน',
   icons: {
     icon: '/favicon.svg',
