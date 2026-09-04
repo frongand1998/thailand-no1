@@ -11,6 +11,9 @@ const ibmPlexSansThai = IBM_Plex_Sans_Thai({
 export const metadata: Metadata = {
   title: 'ทำเนียบข้อมูลสาธารณะ',
   description: 'ค้นหาและสำรวจรายชื่อจากเอกสารเผยแพร่สาธารณะ แยกตามจังหวัด อำเภอ และหน่วยงาน',
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({
