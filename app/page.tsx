@@ -4,7 +4,7 @@ type RecordItem = { id:string; name:string; maskedId:string; scoreChange:number;
 const API='https://260816-karemairodnare.vercel.app/api/v1/records.json';
 export default function Home(){
  const [records,setRecords]=useState<RecordItem[]>([]),[query,setQuery]=useState(''),[province,setProvince]=useState('ทั้งหมด'),[district,setDistrict]=useState('ทั้งหมด'),[agency,setAgency]=useState('ทั้งหมด'),[page,setPage]=useState(1),[loading,setLoading]=useState(true),[error,setError]=useState('');
- useEffect(()=>{fetch(API).then(r=>{if(!r.ok)throw Error();return r.json()}).then(d=>setRecords(d.records??[])).catch(()=>setError('ไม่สามารถโหลดข้อมูลได้ กรุณาลองใหม่อีกครั้ง')).finally(()=>setLoading(false))},[]);
+ useEffect(()=>{fetch(API).then(async r=>{if(!r.ok)throw Error();return await r.json() as {records?:RecordItem[]}}).then(d=>setRecords(d.records??[])).catch(()=>setError('ไม่สามารถโหลดข้อมูลได้ กรุณาลองใหม่อีกครั้ง')).finally(()=>setLoading(false))},[]);
  const provinces=useMemo(()=>[...new Set(records.map(r=>r.province))].sort(),[records]);
  const districts=useMemo(()=>[...new Set(records.filter(r=>province==='ทั้งหมด'||r.province===province).map(r=>r.district))].sort(),[records,province]);
  const agencies=useMemo(()=>[...new Set(records.filter(r=>(province==='ทั้งหมด'||r.province===province)&&(district==='ทั้งหมด'||r.district===district)).map(r=>r.agency))].sort(),[records,province,district]);

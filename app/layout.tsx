@@ -1,11 +1,16 @@
 import type { Metadata } from 'next';
-import { IBM_Plex_Sans_Thai } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 
-const ibmPlexSansThai = IBM_Plex_Sans_Thai({
+const ibmPlexSansThai = localFont({
   variable: '--font-ibm-plex-sans-thai',
-  subsets: ['thai', 'latin'],
-  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  src: [
+    { path: '../public/fonts/ibm-plex-sans-thai-400.ttf', weight: '400' },
+    { path: '../public/fonts/ibm-plex-sans-thai-500.ttf', weight: '500' },
+    { path: '../public/fonts/ibm-plex-sans-thai-600.ttf', weight: '600' },
+    { path: '../public/fonts/ibm-plex-sans-thai-700.ttf', weight: '700' },
+  ],
 });
 
 export const metadata: Metadata = {
